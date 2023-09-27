@@ -17,7 +17,7 @@ class LoginController extends Auth
         if(Auth::attempt($request->only('email', 'password'), $remember))
         {
             $request->session()->regenerate();
-            return $redirect->intended('dashboard')->with('status', 'Has ingresado correctamente');
+            return $redirect->intended('home')->with('status', 'Has ingresado correctamente');
         }
     
         throw ValidationException::withMessages([

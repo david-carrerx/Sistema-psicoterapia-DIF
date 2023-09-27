@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DIF - Psicoterapia</title>
-</head>
-<body>
-    @include('partials.nav')
-    <h1>Register</h1>
+@extends('layouts.app')
 
-    <!--Formulario de login de usuario-->
-    <form method="POST" action="{{ route('register')}}">
+@section('title', 'Registrar')
+@section('content')
+    <h1>Registro</h1>
+
+     <!--Formulario de registro de usuario-->
+     <form method="POST" action="{{ route('register')}}">
         @csrf
         <!--Nombre de usuario-->
         <label for="name">
             <span>Nombre</span>
-            <input type="text" id="name" name="name" autofocus required pattern="[A-Za-z]+" value="{{ old('name') }}" placeholder="Nombre de usuario" title="No puede ingresar caractéres especiales solo letras" autocomplete="off">
+            <input type="text" id="name" name="name" autofocus required pattern="[A-Za-z\s]+" value="{{ old('name') }}" placeholder="Nombre de usuario" title="No puede ingresar caractéres especiales solo letras" autocomplete="off">
         </label>
         @error('name') {{$message}} @enderror
         <br>
@@ -61,12 +55,10 @@
         @error('email') {{$message}} @enderror
         <br>
 
-
         <!--Redirección al inicio de sesión-->
         <label>
             <span>¿Ya tienes cuenta? <a href="login">inicia sesión aquí</a></span>
         </label>
         <button type="submit">Registrar</button>
     </form>
-</body>
-</html>
+@endsection

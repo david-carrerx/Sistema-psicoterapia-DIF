@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DIF - Psicoterapia</title>
-</head>
-<body>
-    @include('partials.nav')
-    <h1>login</h1>
+@extends('layouts.app')
 
-    <!--Formulario de login de usuario-->
-    <form method="POST" action="{{ route('login') }}">
+@section('title', 'Iniciar sesión')
+@section('content')
+    <h1>Iniciar sesión</h1>
+
+     <!--Formulario de login de usuario-->
+     <form method="POST" action="{{ route('login') }}">
         @csrf
         <label for="">
             <input name="email" type="email" required autofocus value="{{ old('email') }}" placeholder="Email" autocomplete="off">
@@ -32,5 +26,4 @@
         </label>
         <button type="submit">Acceder</button>
     </form>
-</body>
-</html>
+@endsection
