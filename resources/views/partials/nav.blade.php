@@ -2,6 +2,7 @@
 <!--Secciones que se mostrará si el usuario está autenticado-->
 @auth
 <a href="{{ route('home') }}">Inicio</a>
+<a href="{{ route('perfil') }}">{{ Auth::user()->name }}</a>
 <a href="{{ route('psicólogos') }}">Psicólogos</a>
 <a href="{{ route('pacientes') }}">Pacientes</a>
 <a href="{{ route('pagos') }}">Pagos</a>
@@ -12,5 +13,6 @@
         Cerrar sesión
     </a>
 </form>
+
 
 @endauth
