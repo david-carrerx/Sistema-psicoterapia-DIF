@@ -7,16 +7,18 @@ use Illuminate\Support\Facades\Schema;
 class AddProfilePictureToUsersTable extends Migration
 {
     public function up()
-{
-    Schema::table('users', function (Blueprint $table) {
-        $table->string('profile_picture')->nullable(); // Puedes cambiar el tipo de columna según tus necesidades
-    });
-}
+    {
+        Schema::table('users', function (Blueprint $table)
+        {
+            $table->string('profile_picture')->nullable();
+        });
+    }
 
-public function down()
-{
-    Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('profile_picture');
-    });
-}
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table)
+        {
+            $table->dropColumn('profile_picture');
+        });
+    }
 }
