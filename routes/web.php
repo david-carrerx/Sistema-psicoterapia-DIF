@@ -6,6 +6,7 @@ Use App\Http\Controllers\Auth\LoginController;
 Use App\Http\Controllers\Auth\RegisteredUserController;
 Use App\Http\Controllers\UserController;
 Use App\Http\Controllers\ProfilePictureController;
+Use App\Http\Controllers\ServicesController;
 Use App\Http\Request\LoginRequest;
 
 //Rutas para navegar entre diferentes vistas.
@@ -22,12 +23,14 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::view('/register', 'auth.register')->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
-//Rutas para el manejo de la información del perfil de usuario
+//Rutas para el manejo de la información del perfil de usuario.
 Route::post('/upload-profile-picture', [ProfilePictureController::class, 'upload'])->name('upload.profile.picture');
 Route::get('/perfil', [UserController::class, 'getUserData'])->name('perfil');
 
-//Rutas para las secciones del dashboard
+//Ruta para el manejo de la información de los servicios.
+Route::get('/servicios', [ServicesController::class, 'index'])->name('servicios');
+
+//Rutas para las secciones del dashboard.
 Route::view('/psicólogos', 'psychologists')->name('psicólogos');
 Route::view('/pacientes', 'patients')->name('pacientes');
 Route::view('/pagos', 'payments')->name('pagos');
-Route::view('/servicios', 'services')->name('servicios');
