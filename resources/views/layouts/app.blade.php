@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psicoterapia - @yield('title') </title>
+    <script src="/resources/js/register.js"></script>
 </head>
 <body>
     @include('partials.nav')

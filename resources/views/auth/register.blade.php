@@ -31,6 +31,17 @@
         @error('password_confirmation') {{$message}} @enderror
         <br>
 
+        <!--Rol de usuario-->
+        <label for="role">
+            <span>Rol de usuario</span>
+            <select name="role" required id="role">
+                <option value="Contador">Contador</option>
+                <option value="Administrador">Administrador</option>
+            </select>
+        </label>
+        @error('email') {{$message}} @enderror
+        <br>
+
         <!--Edad de usuario-->
         <label for="">
             <span>Nacimiento</span>
@@ -63,15 +74,19 @@
     </form>
 
     <script>
-        function capitalizeWords(input) {
-            var value = input.value;
-            if (value.length > 0) {
-                var words = value.split(' ');
-                for (var i = 0; i < words.length; i++) {
-                    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-                }
-                input.value = words.join(' ');
+    //Función para hacer que la primera letra del nombre de usuario sea mayúscula.
+    function capitalizeWords(input)
+    {
+        var value = input.value;
+        if (value.length > 0)
+        {
+            var words = value.split(' ');
+            for (var i = 0; i < words.length; i++)
+            {
+                words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
             }
+            input.value = words.join(' ');
         }
-        </script>      
+    }
+    </script>
 @endsection

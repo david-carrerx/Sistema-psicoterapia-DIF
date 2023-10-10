@@ -5,8 +5,9 @@
     <!--Retorno de información de servicios-->
     <h1>Servicios</h1>
     @foreach ($services as $service)
-        <span>{{ $service->id}}</span>
-        <span>{{ $service->name}}</span>
-        <span>{{ $service->price}}</span><br>
+        <div>
+            <span>{{ $service->name}}</span>
+            <span>{{ $service->price}}</span><br>
+        </div>
     @endforeach
 @endsection

@@ -21,10 +21,11 @@ class UserController extends Controller
             $phone =$user->phone;
             $birthday = Carbon::parse($user->birthday);
             $age = $birthday->age;
+            $role = $user->role;
         }
 
         //Retorna la vista perfil y la información de usuario.
-        return view('profile', ['userName' => $userName, 'email' => $email, 'phone' => $phone, 'age' => $age]);
+        return view('profile', ['userName' => $userName, 'email' => $email, 'phone' => $phone, 'age' => $age, 'role' => $role]);
     }
 }
 

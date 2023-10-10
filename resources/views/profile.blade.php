@@ -7,8 +7,8 @@
 <img src="{{ asset('../../storage/profile_pictures/' . Auth::user()->profile_picture) }}" alt="Foto de perfil">
 
 <!--Se retorna la información del perfil de usuario-->
-<h1>{{ $userName }}</h1><button>Editar</button>
-Contador
+<h1>{{ $userName }}</h1>
+<h2>{{ $role }}</h2>
 <h3>Información personal</h3>
 <h2>{{ $age }} años</h2>
 <h2>{{ $phone }}</h2>

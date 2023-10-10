@@ -16,7 +16,8 @@ class RegisteredUserController extends controller
             'email' => ['required', 'string', 'email','max:255', 'unique:users'],
             'password' => ['required', 'confirmed', 'max:255', Rules\Password::defaults()],
             'birthday' => ['required', 'date'],
-            'phone' => ['required', 'numeric', 'max::10']
+            'phone' => ['required', 'numeric', 'max::10'],
+            'role' => ['required', 'string']
         ]);
 
         User::create([
@@ -25,6 +26,7 @@ class RegisteredUserController extends controller
             'password' => bcrypt($request->password),
             'birthday' => $request->birthday,
             'phone' => $request->phone,
+            'role' => $request->role
         ]);
 
         return redirect()->route('login')->with('status', 'Cuenta creada correctamente');

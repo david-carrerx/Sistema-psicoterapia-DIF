@@ -16,6 +16,7 @@ class AddAdditionalFieldsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->date('birthday')->nullable();
             $table->string('phone')->nullable();
+            $table->string('role')->nullable();
         });
     }
 
