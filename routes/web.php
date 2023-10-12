@@ -7,6 +7,7 @@ Use App\Http\Controllers\Auth\RegisteredUserController;
 Use App\Http\Controllers\UserController;
 Use App\Http\Controllers\ProfilePictureController;
 Use App\Http\Controllers\ServicesController;
+Use App\Http\Controllers\PsychologistsController;
 Use App\Http\Request\LoginRequest;
 
 //Rutas para navegar entre diferentes vistas.
@@ -30,7 +31,8 @@ Route::get('/perfil', [UserController::class, 'getUserData'])->name('perfil');
 //Ruta para el manejo de la información de los servicios.
 Route::get('/servicios', [ServicesController::class, 'index'])->name('servicios');
 
-//Rutas para las secciones del dashboard.
-Route::view('/psicólogos', 'psychologists')->name('psicólogos');
+//Ruta para el manejo de la información de los psicólogos.
+Route::get('/psicólogos', [PsychologistsController::class, 'getPsychologistsData'])->name('psicólogos');
+
 Route::view('/pacientes', 'patients')->name('pacientes');
 Route::view('/pagos', 'payments')->name('pagos');
