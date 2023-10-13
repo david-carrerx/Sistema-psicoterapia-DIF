@@ -33,6 +33,7 @@ Route::get('/servicios', [ServicesController::class, 'index'])->name('servicios'
 
 //Ruta para el manejo de la información de los psicólogos.
 Route::get('/psicólogos', [PsychologistsController::class, 'getPsychologistsData'])->name('psicólogos');
+Route::match(['get', 'post'], '/buscar-psicólogos', [PsychologistsController::class, 'searchPsychologists'])->name('buscar-psicólogos');
 
 Route::view('/pacientes', 'patients')->name('pacientes');
 Route::view('/pagos', 'payments')->name('pagos');
