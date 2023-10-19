@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 class UserController extends Controller
 {
+    //Función para obtener los datos del usuario.
     public function getUserData()
     {
         //Se obtiene el usuario autenticado.

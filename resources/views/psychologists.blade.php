@@ -25,7 +25,7 @@
         <!-- <img src="{/{ asset('../../storage/profile_pictures/' . $psychologist->profile_image) }}" alt="Foto de perfil"> -->
         <h2>{{ $psychologist->name }}</h2>
         <h3>{{ $psychologist->description }}</h3>
-        <button>Ver perfil</button>
+        <a href="{{ route('perfil-psicólogo', ['id' => $psychologist->id]) }}">Ver perfil</a>
     </div>
     @endforeach
 @endsection

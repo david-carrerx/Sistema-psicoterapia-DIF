@@ -33,4 +33,15 @@ class PsychologistsController extends Controller
         $psychologists = $psychologists->get();
         return view('psychologists', compact('psychologists'));
     }
+
+    //Función que crea el perfil de un psicólogo.
+    public function createProfile($id)
+    {
+        $psychologists = Psychologist::find($id);
+
+        $birthday = Carbon::parse($psychologists->birthday);
+        $age = $birthday->age;
+
+        return view('psychologist-profile', compact('psychologists', 'age'));
+    }
 }

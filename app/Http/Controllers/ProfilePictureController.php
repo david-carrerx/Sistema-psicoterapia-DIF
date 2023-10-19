@@ -15,14 +15,14 @@ class ProfilePictureController extends Controller
         ]);
 
         //Subir la imagen al sistema de archivos.
-        if ($request->hasFile('profile_picture')) {
+        if ($request->hasFile('profile_picture')){
             $imagen = $request->file('profile_picture');
             $nombreImagen = uniqid('profile_') . '.' . $imagen->getClientOriginalExtension();
             $imagen->storeAs('public/profile_pictures', $nombreImagen);
         }
 
         //Actualizar el campo "profile_picture" en la base de datos.
-        if ($request->user()) {
+        if ($request->user()){
             $request->user()->update(['profile_picture' => $nombreImagen]);
         }
 
