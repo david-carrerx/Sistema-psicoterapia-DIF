@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psicoterapia - @yield('title') </title>
     <script src="/resources/js/register.js"></script>
+    <link rel="icon" href="{{asset('assets/icon.png')}}">
 </head>
 <body>
     @include('partials.nav')
