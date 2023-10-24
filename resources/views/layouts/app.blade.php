@@ -10,8 +10,14 @@
     <link rel="icon" href="{{asset('assets/icon.png')}}">
 </head>
 <body>
-    @include('partials.nav')
-    @yield('content')
+    <nav style="text-align:center;"><h1>Logo del DIF</h1></nav>
+    <main style="display: flex;">
+        @include('partials.nav')
+        <div style="width: 85%; padding-left:20px;">
+            @yield('content')
+        </div>
+    </main>
+    
     <!--Si se encuentra un mensaje de status este se imprime-->
     @if(session('status'))
         <script>
