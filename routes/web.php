@@ -40,6 +40,7 @@ Route::get('/perfil-psicólogo/{id}', [PsychologistsController::class, 'createPr
 //Rutas para el manejo de la información de los pacientes.
 Route::view('/pacientes', 'patients')->name('pacientes');
 Route::get('/agregar-pacientes', [PatientController::class, 'returnData'])->name('agregar-pacientes');
+Route::post('/agregar-pacientes', [PatientController::class, 'saveData'])->name('agregar-pacientes');
 
 
 Route::view('/pagos', 'payments')->name('pagos');

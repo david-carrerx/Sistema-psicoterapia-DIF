@@ -9,6 +9,7 @@ use App\Models\User;
 
 class RegisteredUserController extends controller
 {
+    //Función para validar y crear un nuevo usuario.
     public function store(Request $request)
     {
         $request->validate([

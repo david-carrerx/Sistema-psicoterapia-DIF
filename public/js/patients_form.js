@@ -15,19 +15,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-//Función para validar entradas de checkbox.
-function messageAlert() {
-    var h2 = document.createElement("h2");
-    var texto = document.createTextNode("Este es un nuevo h2 insertado con JavaScript");
-    
-    // Agrega el nodo de texto al elemento h2
-    nuevoH2.appendChild(texto);
-    
-    // Obtén el elemento específico por su ID y agrega el h2 a él
-    var elementoEspecifico = document.getElementById("miElementoEspecifico");
-    elementoEspecifico.appendChild(nuevoH2);
-}
-
-// Asigna la función al botón
-document.getElementById("insertarH2").addEventListener("click", insertarH2EnElementoEspecifico);

@@ -9,7 +9,7 @@
     <link rel="icon" href="{{asset('assets/icon.png')}}">
 </head>
 <body>
-    <nav><h1>Logo del DIF</h1></nav>
+    <nav style="display: flex; justify-content:center;"><h1>Logo del DIF</h1></nav>
     <main style="display: flex;">
         @include('partials.nav')
         <div style="width: 85%; padding-left:20px;">
