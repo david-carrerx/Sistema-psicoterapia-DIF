@@ -8,6 +8,7 @@ Use App\Http\Controllers\UserController;
 Use App\Http\Controllers\ProfilePictureController;
 Use App\Http\Controllers\ServicesController;
 Use App\Http\Controllers\PsychologistsController;
+Use App\Http\Controllers\PatientController;
 Use App\Http\Request\LoginRequest;
 
 //Rutas para navegar entre diferentes vistas.
@@ -37,6 +38,8 @@ Route::match(['get', 'post'], '/buscar-psicólogos', [PsychologistsController::c
 Route::get('/perfil-psicólogo/{id}', [PsychologistsController::class, 'createProfile'])->name('perfil-psicólogo');
 
 //Rutas para el manejo de la información de los pacientes.
-Route::view('/agregar-paciente', 'add-patient')->name('agregar-pacientes');
 Route::view('/pacientes', 'patients')->name('pacientes');
+Route::get('/agregar-pacientes', [PatientController::class, 'returnData'])->name('agregar-pacientes');
+
+
 Route::view('/pagos', 'payments')->name('pagos');
