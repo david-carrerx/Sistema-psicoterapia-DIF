@@ -12,8 +12,8 @@
             <label for="age">Fecha de nacimiento<span>*</span> </label>
             <input id="age" name="age" type="date" placeholder="Edad del paciente" required>
             @error('age') {{$message}} @enderror
-            <label for="genre">Género<span>*</span></label>
-            <select name="genre" id="genre" required>
+            <label for="gender">Género<span>*</span></label>
+            <select name="gender" id="gender" required>
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
             </select>

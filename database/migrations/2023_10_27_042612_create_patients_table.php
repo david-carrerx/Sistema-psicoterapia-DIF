@@ -17,7 +17,7 @@ class CreatePatientsTable extends Migration
             $table->id();
             $table->string('name');
             $table->date('age');
-            $table->enum('genre', ['masculino', 'femenino']);
+            $table->enum('gender', ['masculino', 'femenino']);
             $table->enum('civil_status', ['soltero', 'casado', 'divorciado', 'viudo']);
             $table->enum('scholarship', ['capacitacion', 'medio-basico', 'medio-superior', 'superior', 'posgrado', 'ninguna']);
             $table->string('phone');

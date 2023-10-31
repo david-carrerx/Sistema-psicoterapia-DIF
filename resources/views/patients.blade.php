@@ -11,7 +11,8 @@
         <label for="name">Buscar por nombre</label>
         <input type="text" name="name" placeholder="Nombre del paciente" autocomplete="off">
         <label for="psychologist">Buscar por psicólogo</label>
-          <select name="psychologist" id="psychologist" required>
+          <select name="psychologist" id="psychologist">
+            <option value="" disabled selected>Seleccionar</option>
                 @foreach ($psychologists as $psychologist)
                     <option value="{{ $psychologist->id }}">{{ $psychologist->name }}</option>
                 @endforeach
@@ -46,7 +47,7 @@
                     <td>{{ $patient->phone }}</td>
                     <td>{{ $patient->psychologist->name }}</td>
                     <td>{{ $patient->status }}</td>
-                    <td><a>Expediente</a></td>
+                    <td><a href="{{ route('ver-expediente' , ['id' => $patient->id]) }}">Expediente</a></td>
                 </tr>
             @endforeach
         </tbody>

@@ -26,7 +26,7 @@ class PatientController extends Controller
         $patient = new Patient;
         $patient->name = $request->input('name');
         $patient->age = $request->input('age');
-        $patient->genre = $request->input('genre');
+        $patient->gender = $request->input('gender');
         $patient->civil_status = $request->input('civil_status');
         $patient->scholarship = $request->input('scholarship');
         $patient->phone = $request->input('phone');
@@ -61,6 +61,7 @@ class PatientController extends Controller
         $psychologistId = $request->input('psychologist');
 
         $patients = Patient::query();
+        $psychologists = Psychologist::all();
 
         if ($id) {
             $patients->where('id', $id);
@@ -73,7 +74,47 @@ class PatientController extends Controller
         }
 
         $patients = $patients->get();
-        $psychologists = Psychologist::all();
+        
         return view('patients', compact('patients', 'psychologists'));
     }
+
+    //Función para ver el expediente del paciente.
+    public function viewFile($id)
+    {
+        $patients = Patient::find($id);
+        $editing = false;
+
+        return view('patient-file', compact('patients', 'editing'));
+    }
+
+    //Función para editar el expediente del paciente.
+    public function updateFile(Request $request, $id)
+    {
+        $patients = Patient::find($id);
+        
+        if ($patients)
+        {
+            $patients->name = $request->input('name');
+            $patients->age = $request->input('age');
+            $patients->gender = $request->input('gender');
+            $patients->civil_status = $request->input('civil_status');
+            $patients->scholarship = $request->input('scholarship');
+            $patients->phone = $request->input('phone');
+            $patients->address = $request->input('address');
+            $patients->job = $request->input('job');
+            $patients->religion = $request->input('religion');
+            $patients->time = $request->input('time');
+            $patients->reason = $request->input('reason');
+            $patients->description = $request->input('description');
+
+            $patients->save();
+
+            return view('patient-file', compact('patients'))->with('message', 'Paciente editado correctamente');
+        }
+        else
+        {
+            return view('patient-file', ['id' => $id]);
+        }
+    }
 }
+

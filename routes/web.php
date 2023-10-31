@@ -42,6 +42,7 @@ Route::get('/pacientes', [PatientController::class, 'getPsychologistsPatientData
 Route::match(['get', 'post'], '/buscar-pacientes', [PatientController::class, 'searchPatients'])->name('buscar-pacientes');
 Route::get('/agregar-pacientes', [PatientController::class, 'returnData'])->name('agregar-pacientes');
 Route::post('/agregar-pacientes', [PatientController::class, 'saveData'])->name('agregar-pacientes');
-
+Route::get('/ver-expediente/{id}', [PatientController::class, 'viewFile'])->name('ver-expediente');
+Route::post('/actualizar-expediente/{id}', [PatientController::class, 'updateFile'])->name('actualizar-expediente');
 
 Route::view('/pagos', 'payments')->name('pagos');
