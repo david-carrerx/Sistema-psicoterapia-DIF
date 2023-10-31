@@ -23,6 +23,7 @@ class CreatePatientsTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('job');
+            $table->string('status')->default('Activo');
             $table->string('checkbox')->nullable();
             $table->string('religion')->nullable();
             $table->string('time')->nullable();

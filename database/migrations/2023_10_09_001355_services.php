@@ -20,6 +20,19 @@ class Services extends Migration
             $table->string('price');
             $table->timestamps();
         });
+
+        //Inserción de los datos
+        DB::table('services')->insert([
+            ['name' => 'Entrevistas', 'price' => '20'],
+            ['name' => 'Terapia niñ@s', 'price' => '30'],
+            ['name' => 'Terapia adolescentes', 'price' => '50'],
+            ['name' => 'Terapia individual (adulto)', 'price' => '50'],
+            ['name' => 'Terapia de pareja', 'price' => '100'],
+            ['name' => 'Terapia familiar', 'price' => '100'],
+            ['name' => 'Valoraciones', 'price' => '200'],
+            ['name' => 'Valoración adopciones', 'price' => '800'],
+            ['name' => 'Valoración adopciones consentidas', 'price' => '400'],
+        ]);
     }
 
     /**

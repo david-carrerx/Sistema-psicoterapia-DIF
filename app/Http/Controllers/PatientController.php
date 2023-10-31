@@ -9,7 +9,7 @@ use App\Models\Service;
 
 class PatientController extends Controller
 {
-    //Función para retornar la información de psicólogos y servicios.
+    // Función para retornar la información de psicólogos y servicios.
     public function returnData()
     {
         $psychologists = Psychologist::all();
@@ -17,9 +17,12 @@ class PatientController extends Controller
         return view('add-patient', compact('psychologists', 'services'));
     }
 
-    //Función para guardar la información del paciente.
+    // Función para guardar la información del paciente.
     public function saveData(Request $request)
     {
+        $psychologists = Psychologist::all();
+        $patients = Patient::all();
+
         $patient = new Patient;
         $patient->name = $request->input('name');
         $patient->age = $request->input('age');
@@ -39,6 +42,38 @@ class PatientController extends Controller
 
         $patient->save();
 
-        return view('patients');
+        return redirect()->route('pacientes');
+    }
+
+    // Función que retorna la información de los psicólogos y pacientes.
+    public function getPsychologistsPatientData()
+    {
+        $psychologists = Psychologist::all();
+        $patients = Patient::all();
+        return view('patients', ['psychologists' => $psychologists, 'patients' => $patients]);
+    }
+
+    // Función para buscar pacientes.
+    public function searchPatients(Request $request)
+    {
+        $id = $request->input('id');
+        $name = $request->input('name');
+        $psychologistId = $request->input('psychologist');
+
+        $patients = Patient::query();
+
+        if ($id) {
+            $patients->where('id', $id);
+        }
+        if ($name) {
+            $patients->where('name', 'LIKE', '%' . $name . '%');
+        }
+        if ($psychologistId) {
+            $patients->where('psychologist_id', $psychologistId);
+        }
+
+        $patients = $patients->get();
+        $psychologists = Psychologist::all();
+        return view('patients', compact('patients', 'psychologists'));
     }
 }

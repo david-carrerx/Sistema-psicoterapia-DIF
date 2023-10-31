@@ -14,7 +14,7 @@ class Patient extends Model
     protected $fillable = [
         'name', 'age', 'genre', 'civil_status', 'scholarship',
         'phone', 'checkbox' ,'address', 'job', 'religion', 'time', 'reason',
-        'description', 'service_id', 'psychologist_id',
+        'description', 'service_id', 'psychologist_id', 'status'
     ];
 
     //Relación a un psicólogo.
