@@ -3,6 +3,9 @@
 @section('title', 'Paciente')
 @section('content')
 
+<!--Estilos del paciente-->
+<link rel="stylesheet" href="{{ asset('css/patients.css')}}" rel="stylesheet">
+
 <!--Mensaje de editado exitoso-->
 @if (isset($message))
     <div class="alert alert-success">

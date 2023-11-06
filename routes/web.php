@@ -9,6 +9,7 @@ Use App\Http\Controllers\ProfilePictureController;
 Use App\Http\Controllers\ServicesController;
 Use App\Http\Controllers\PsychologistsController;
 Use App\Http\Controllers\PatientController;
+Use App\Http\Controllers\PaymentController;
 Use App\Http\Request\LoginRequest;
 
 //Rutas para navegar entre diferentes vistas.
@@ -45,4 +46,8 @@ Route::post('/agregar-pacientes', [PatientController::class, 'saveData'])->name(
 Route::get('/ver-expediente/{id}', [PatientController::class, 'viewFile'])->name('ver-expediente');
 Route::post('/actualizar-expediente/{id}', [PatientController::class, 'updateFile'])->name('actualizar-expediente');
 
-Route::view('/pagos', 'payments')->name('pagos');
+//Rutas para el manejo de información de los pagos.
+Route::get('/pagos', [PaymentController::class, 'getInfo'])->name('pagos');
+Route::match(['get', 'post'], '/buscar-pagos', [PaymentController::class, 'searchPayments'])->name('buscar-pagos');
+Route::get('/agregar-pago', [PaymentController::class, 'returnData'])->name('agregar-pago');
+Route::post('/agregar-pago', [PaymentController::class, 'saveData'])->name('agregar-pago');

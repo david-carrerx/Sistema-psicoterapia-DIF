@@ -2,6 +2,8 @@
 
 @section('title', 'Pacientes')
 @section('content')
+    <!--Estilos del paciente-->
+    <link rel="stylesheet" href="{{ asset('css/patients.css')}}" rel="stylesheet">
 
     <!--Filtro de búsqueda de pacientes-->
     <div class="container">
