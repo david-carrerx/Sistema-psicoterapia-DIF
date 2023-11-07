@@ -16,7 +16,8 @@ class PaymentController extends Controller
     {
         $psychologists = Psychologist::all();
         $services = Service::all();
-        return view('add-payment', compact('psychologists', 'services'));
+        $patients = Patient::all();
+        return view('add-payment', compact('psychologists', 'services', 'patients'));
     }
 
     // Función para guardar la información del paciente.
@@ -31,6 +32,7 @@ class PaymentController extends Controller
         $payment->age = $request->input('age');
         $payment->price = $request->input('price');
         
+        $payment->user_id = $request->input('user');
         $payment->service_id = $request->input('service');
         $payment->psychologist_id = $request->input('psychologist');
 
@@ -72,6 +74,39 @@ class PaymentController extends Controller
         $payments = Payment::all();
         $services = Service::all();
         $patients = Patient::all();
+
+        return view('payments', compact('services', 'patients', 'payments'));
+    }
+
+    //Función para guardar la información de los pagos.
+    public function savePayment(Request $request)
+    {
+        $payments = Payment::all();
+        $services = Service::all();
+        $patients = Patient::all();
+
+
+        // Accede a los datos del formulario
+        //$patientId = $request->input('name');
+        //$totalAmount = $request->input('total_amount');
+        //$serviceIds = $request->input('services');
+        //$psychologistId = Auth::user()->psychologist_id; // Obtén el ID del psicólogo autenticado
+        //$userId = Auth::user()->id; // Obtén el ID del usuario autenticado
+        //$date = now(); // Obtiene la fecha y hora actual
+
+        // Crea una nueva instancia del modelo Payment y asigna los valores
+        //$payment = new Payment();
+        //$payment->patient_id = $patientId;
+        //$payment->total_amount = $totalAmount;
+        //$payment->service_id = $serviceIds[0]; // Puedes ajustar esto según tus necesidades
+        //$payment->psychologist_id = $psychologistId;
+        //$payment->user_id = $userId;
+        //$payment->date = $date;
+
+        //$payment = new Payment;
+        //$payment->name = $request->input('name');
+        //$payment->age = $request->input('age');
+        //$payment->price = $request->input('price');
 
         return view('payments', compact('services', 'patients', 'payments'));
     }

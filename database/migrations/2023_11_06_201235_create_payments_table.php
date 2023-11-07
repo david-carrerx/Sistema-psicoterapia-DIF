@@ -20,7 +20,7 @@ class CreatePaymentsTable extends Migration
             $table->date('date');
             $table->string('status')->default('Activo');
             $table->unsignedBigInteger('service_id');
-            $table->unsignedBigInteger('psychologist_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

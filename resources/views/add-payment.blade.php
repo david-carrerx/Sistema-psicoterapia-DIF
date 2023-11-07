@@ -2,94 +2,129 @@
 
 @section('title', 'Pagos')
 @section('content')
-    <h1>Datos del cobro</h1>
-    <!--Formulario para registro de pagos.-->
-    <form id="patient-form" method="POST" action="/agregar-pagos">
+<h1>Datos del cobro</h1>
+<div>
+    <div class="row">
+        <div class="col order-last"></div>
+        <div class="col">
+            <label for="service">Servicio</label>
+        </div>
+        <div class="col psy">
+            <label for="price">Importe</label>
+        </div>
+        <div class="col order-first">
+            <label for="name">Nombre</label>
+        </div>
+    </div>
+
+    <form action="{{ route('guardar-datos') }}" method="POST">
         @csrf
-        <div>
-            <label for="name">Nombre<span>*</span></label>
-                <select name="service" id="service" required>
-                    @foreach ($services as $service)
-                        <option value="{{ $service->id }}">{{ $service->name }}</option>
-                    @endforeach
-                </select>
-            <label for="service">Asignar servicio<span>*</span></label>
-                <select name="service" id="service" required>
-                    @foreach ($services as $service)
-                        <option value="{{ $service->id }}">{{ $service->name }}</option>
-                    @endforeach
-                </select>
-                <label for="psychologist">Asignar psicólogo<span>*</span></label>
-                <select name="psychologist" id="psychologist" required>
-                    @foreach ($psychologists as $psychologist)
-                        <option value="{{ $psychologist->id }}">{{ $psychologist->name }}</option>
-                    @endforeach
-                </select>
-            
-        </div>
-        <div>
-            <label for="civil_status">Estado civil<span>*</span></label>
-            <select name="civil_status" id="civil_status"  value="soltero" required>
-                <option value="soltero">Soltero</option>
-                <option value="casado">Casado</option>
-                <option value="divorciado">Divorciado</option>
-                <option value="viudo">Viudo</option>
-            </select>
-            <label for="scholarship">Escolaridad<span>*</span></label>
-            <select name="scholarship" id="scholarship"  value="capacitacion" required>
-                <option value="capacitacion">Capacitación</option>
-                <option value="medio-basico">Medio básico</option>
-                <option value="medio-superior">Medio superior</option>
-                <option value="superior">Superior</option>
-                <option value="posgrado">Posgrado</option>
-                <option value="ninguna">Ninguna</option>
-            </select>
-            <label for="phone">Celular<span>*</span></label>
-            <input id="phone" name="phone" type="text" placeholder="Número telefónico" min="1" max="120"  maxlength="10" pattern="\d{10}" autocomplete="off" required>
-        </div>
-        <div>
-            <label for="address">Domicilio<span>*</span></label>
-            <input id="address" name="address" type="text" placeholder="Domicilio del paciente"  autocomplete="off" required>
-            <label for="job">Ocupación<span>*</span></label>
-            <input id="job" name="job" type="text" placeholder="Ocupación del paciente" autocomplete="off" required>
-            <label for="religion">Religión</label>
-            <input id="religion" name="religion" type="text" placeholder="Religión del paciente" autocomplete="off">
-        </div>
-        <div>
-            <label for="checkbox1">Motivo de la consulta</label>
-            <label for="checkbox2">a) ¿Ha recibido ayuda psicológica por parte de otra situación?</label>
-            <input type="checkbox" value="yes" name="checkbox" id="checkbox1"><span>Sí</span>
-            <input type="checkbox" value="no" name="checkbox" id="checkbox2"><span>No</span>
-            <span id="checkbox-error" style="color: red; display: none;">Selecciona al menos una opción.</span>
-        </div>
-        <div>
-            <label for="time">¿Por cuánto tiempo?</label>
-            <input id="time" name="time" type="text" placeholder="Tiempo" autocomplete="off">
-            <label for="reason">Motivo de esta atención</label>
-            <input id="reason" name="reason" type="text" placeholder="Motivo" autocomplete="off">
-        </div>
-        <div>
-            <label for="description">Descripción de su situación actual</label>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Escriba la situación actual"></textarea>
-        </div>
-        <div>
-            <label for="service">Asignar servisdcio<span>*</span></label>
-            <select name="service" id="service" required>
+    <div class="row">
+        <div class="col order-last"></div>
+        <div class="col">
+            <select name="service" id="service">
                 @foreach ($services as $service)
-                    <option value="{{ $service->id }}">{{ $service->name }}</option>
-                @endforeach
-            </select>
-            <label for="psychologist">Asignar psicólogo<span>*</span></label>
-            <select name="psychologist" id="psychologist" required>
-                @foreach ($psychologists as $psychologist)
-                    <option value="{{ $psychologist->id }}">{{ $psychologist->name }}</option>
+                    <option value="{{ $service->id }}" data-price="{{ $service->price }}">{{ $service->name }}</option>
                 @endforeach
             </select>
         </div>
-        <div>
-            <button type="submit">Guardar</button>
-            <button type="reset">Eliminar</button>
+        <div class="col psy">
+            <input id="price" name="price" type="text" placeholder="Precio" autofocus readonly required>
         </div>
-    </form>
-    <script src="{{ asset('js/patients_form.js') }}"></script>
+        <div class="col order-first">
+            <select name="name" id="select-patient" required>
+                <option value="">Selecciona un paciente</option>
+                @foreach ($patients as $patient)
+                    <option value="{{ $patient->id }}">{{ $patient->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <button type="button" id="addPayment">Agregar</button>
+    </div>
+</div>
+
+<table id="paymentTable">
+    <thead>
+        <tr>
+            <th class="id">ID</th>
+            <th>Servicio</th>
+            <th>Importe</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td style="font-weight: bold">Importe total</td>
+            <td id="total-amount"></td>
+            <td><button type="submit">Agregar pago</button></form></td>
+        </tr>
+    </tfoot>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#service").change(function() {
+            var selectedOption = $(this).find("option:selected");
+            var selectedServicePrice = selectedOption.data("price");
+
+            // Actualiza el campo de entrada de precio con el precio del servicio seleccionado
+            $("#price").val(selectedServicePrice);
+        });
+
+        // Agregar una fila a la tabla cuando se haga clic en el botón "Agregar"
+        $("#addPayment").click(function() {
+            var service = $("#service option:selected").text();
+            var price = $("#price").val();
+            var patientSelect = $("#select-patient");
+
+            // Verifica si se ha seleccionado un servicio y un paciente antes de agregar la fila
+            if (service && price && patientSelect.val()) {
+                // Agregar una nueva fila a la tabla con los datos seleccionados
+                $("#paymentTable tbody").append('<tr><td></td><td>' + service + '</td><td>' + price + '</td><td><a href="#" class="remove-row">Eliminar</a></td></tr>');
+
+                // Limpiar los campos del formulario después de agregar la fila
+                $("#service").val("");
+                $("#price").val("");
+                patientSelect.addClass("selected").attr("disabled", "disabled");
+
+                // Calcular y actualizar la suma de la columna "Importe"
+                updateTotalAmount();
+            }
+        });
+
+        // Eliminar una fila cuando se haga clic en el enlace "Eliminar"
+        $(document).on("click", ".remove-row", function(e) {
+            e.preventDefault();
+            $(this).closest("tr").remove();
+
+            // Calcular y actualizar la suma de la columna "Importe" después de eliminar una fila
+            updateTotalAmount();
+        });
+
+        // Función para calcular y actualizar la suma de la columna "Importe"
+        function updateTotalAmount() {
+            var totalAmount = 0;
+            $("#paymentTable tbody tr").each(function() {
+                var price = parseFloat($(this).find("td:nth-child(3)").text());
+                if (!isNaN(price)) {
+                    totalAmount += price;
+                }
+            });
+
+            // Actualiza el valor en el <td> del "Importe total"
+            $("#total-amount").text(totalAmount.toFixed(2)); // Asegura que se muestre con 2 decimales
+        }
+    });
+
+</script>
 @endsection

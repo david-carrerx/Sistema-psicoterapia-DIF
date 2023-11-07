@@ -51,3 +51,4 @@ Route::get('/pagos', [PaymentController::class, 'getInfo'])->name('pagos');
 Route::match(['get', 'post'], '/buscar-pagos', [PaymentController::class, 'searchPayments'])->name('buscar-pagos');
 Route::get('/agregar-pago', [PaymentController::class, 'returnData'])->name('agregar-pago');
 Route::post('/agregar-pago', [PaymentController::class, 'saveData'])->name('agregar-pago');
+Route::post('/guardar-datos', [PaymentController::class, 'savePayment'])->name('guardar-datos');
