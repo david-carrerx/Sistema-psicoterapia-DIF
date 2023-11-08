@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+    protected $table = 'payments';
+
+    // Campos que se pueden llenar de forma masiva.
+    protected $fillable = [
+        'id', 'patient_id', 'price', 'date', 'service_id',
+        'user_id', 'status'
+    ];
 
     //Relación a un paciente.
     public function patient()
@@ -18,7 +25,7 @@ class Payment extends Model
     //Relación a un servicio.
     public function service()
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class, 'service_id');
     }
 
     //Relación a un usuario.

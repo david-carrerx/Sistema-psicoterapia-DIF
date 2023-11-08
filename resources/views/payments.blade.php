@@ -13,10 +13,10 @@
             <div class="row">
                 <div class="col order-last"></div>
                 <div class="col">
-                    <label for="patient">Buscar por fecha</label>
+                    <label for="date">Buscar por fecha</label>
                 </div>
                 <div class="col psy">
-                    <label for="date">Buscar paciente</label>
+                    <label for="patient-name">Buscar paciente</label>
                 </div>
                 <div class="col order-first">
                     <label for="service">Buscar por servicio</label>
@@ -34,8 +34,8 @@
                     <input type="date" name="date" placeholder="Seleccionar" autocomplete="off">
                 </div>
                 <div class="col psy">
-                    <select name="patient" id="patient">
-                        <option value="" disabled selected>Seleccionar</option>
+                    <select name="patient-name" id="patient-name">
+                        <option disabled selected>Seleccionar</option>
                             @foreach ($patients as $patient)
                                 <option value="{{ $patient->id }}">{{ $patient->name }}</option>
                             @endforeach
@@ -48,7 +48,7 @@
                             @foreach ($services as $service)
                                 <option value="{{ $service->id }}">{{ $service->name }}</option>
                             @endforeach
-                        </select>
+                    </select>
                 </div>
             </div>                            
         </form>

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Psychologist;
 use App\Models\Patient;
 use App\Models\Service;
 use App\Models\Payment;
-
+use App\Models\User;
 
 class PaymentController extends Controller
 {
@@ -46,7 +47,7 @@ class PaymentController extends Controller
     {
         $serviceId = $request->input('service');
         $date = $request->input('date');
-        $patientId = $request->input('patient');
+        $patientId = $request->input('patient-name');
 
         $payments = Payment::query();
         $patients = Patient::all();
@@ -85,29 +86,15 @@ class PaymentController extends Controller
         $services = Service::all();
         $patients = Patient::all();
 
+        $payment = new Payment();
+        $payment->patient_id = $request->input('patient-name');
+        $payment->price = $request->input('total-amount');
+        $payment->service_id = $request->input('service-id');
+        $payment->user_id = Auth::user()->id; 
+        $payment->date = now();
 
-        // Accede a los datos del formulario
-        //$patientId = $request->input('name');
-        //$totalAmount = $request->input('total_amount');
-        //$serviceIds = $request->input('services');
-        //$psychologistId = Auth::user()->psychologist_id; // Obtén el ID del psicólogo autenticado
-        //$userId = Auth::user()->id; // Obtén el ID del usuario autenticado
-        //$date = now(); // Obtiene la fecha y hora actual
-
-        // Crea una nueva instancia del modelo Payment y asigna los valores
-        //$payment = new Payment();
-        //$payment->patient_id = $patientId;
-        //$payment->total_amount = $totalAmount;
-        //$payment->service_id = $serviceIds[0]; // Puedes ajustar esto según tus necesidades
-        //$payment->psychologist_id = $psychologistId;
-        //$payment->user_id = $userId;
-        //$payment->date = $date;
-
-        //$payment = new Payment;
-        //$payment->name = $request->input('name');
-        //$payment->age = $request->input('age');
-        //$payment->price = $request->input('price');
-
-        return view('payments', compact('services', 'patients', 'payments'));
+        $payment->save();
+        
+       return redirect()->route('pagos');
     }
 }
