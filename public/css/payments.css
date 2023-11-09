@@ -15,7 +15,7 @@ select#service {
     z-index: 2;
 }
 
-select#patient {
+select#patient-name {
     position: relative;
     width: 80%;
     height: 36px;
@@ -96,8 +96,6 @@ label {
     height: 20px;
     margin-left: 6px;
 }
-
-
 
 input[name="date"] {
     width: 100%;
