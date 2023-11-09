@@ -38,7 +38,7 @@
                             @foreach ($psychologists as $psychologist)
                                 <option value="{{ $psychologist->id }}">{{ $psychologist->name }}</option>
                             @endforeach
-                        </select>
+                    </select>
                     <button type="submit" class="btn btn-success">Buscar</button>
                 </div>
                 <div class="col order-first">
@@ -48,29 +48,33 @@
         </form>
     </div>
     <br>
-    <!--Tabla con los datos de pacientes-->
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th class="id">ID</th>
-                <th>Nombre</th>
-                <th>Teléfono</th>
-                <th>Psicólogo asignado</th>
-                <th>Estado</th>
-                <th>Expediente</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($patients as $patient)
+
+    <div style="overflow: scroll; height:550px;">
+        <!--Tabla con los datos de pacientes-->
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td class="id">{{ $patient->id }}</td>
-                    <td>{{ $patient->name }}</td>
-                    <td>{{ $patient->phone }}</td>
-                    <td>{{ $patient->psychologist->name }}</td>
-                    <td><div class="estado-container activo">{{ $patient->status }}</div></td>
-                    <td><a type="button" href="{{ route('ver-expediente' , ['id' => $patient->id]) }}" class="expediente-button">Expediente<img src="{{asset('assets/eye.png')}}" alt="..." class="button-icono"></a></td>
+                    <th class="id">ID</th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Psicólogo asignado</th>
+                    <th>Estado</th>
+                    <th>Expediente</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($patients as $patient)
+                    <tr>
+                        <td class="id">{{ $patient->id }}</td>
+                        <td>{{ $patient->name }}</td>
+                        <td>{{ $patient->phone }}</td>
+                        <td>{{ $patient->psychologist->name }}</td>
+                        <td><div class="estado-container activo">{{ $patient->status }}</div></td>
+                        <td><a type="button" href="{{ route('ver-expediente' , ['id' => $patient->id]) }}" class="expediente-button">Expediente<img src="{{asset('assets/eye.png')}}" alt="..." class="button-icono"></a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    
 @endsection

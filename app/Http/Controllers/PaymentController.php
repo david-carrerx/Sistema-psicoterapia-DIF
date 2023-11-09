@@ -97,4 +97,15 @@ class PaymentController extends Controller
         
        return redirect()->route('pagos');
     }
+
+    //Función para deshabilitar pagos.
+    public function deletePayment($id)
+    {
+        $payment = Payment::find($id);
+        $payment->status = "Inactivo";
+        $payment->save();
+
+
+        return redirect()->route('pagos');
+    }
 }

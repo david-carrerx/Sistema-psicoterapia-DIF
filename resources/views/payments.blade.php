@@ -39,7 +39,7 @@
                             @foreach ($patients as $patient)
                                 <option value="{{ $patient->id }}">{{ $patient->name }}</option>
                             @endforeach
-                        </select>
+                    </select>
                     <button type="submit" class="btn btn-success">Buscar</button>
                 </div>
                 <div class="col order-first">
@@ -55,32 +55,34 @@
     </div>
     <br>
     <!--Tabla con los datos de pacientes-->
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th class="id">ID</th>
-                <th>Nombre</th>
-                <th>Servicio</th>
-                <th>Fecha</th>
-                <th>Importe</th>
-                <th>Estado</th>
-                <th>Imprimir</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($payments as $payment)
+    <div style="overflow: scroll; height:550px;">
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td class="id">{{ $payment->id }}</td>
-                    <td>{{ $payment->patient->name }}</td>
-                    <td>{{ $payment->service->name }}</td>
-                    <td>{{ $payment->date }}</td>
-                    <td>{{ $payment->price }}</td>
-                    <td><div class="estado-container activo">{{ $payment->status }}</div></td>
-                    <td><a type="button" href="#" class="expediente-button">Imprimir</a></td>
-                    <td><a type="button" href="#" class="eliminar-button">Eliminar</a></td>
+                    <th class="id">ID</th>
+                    <th>Nombre</th>
+                    <th>Servicio</th>
+                    <th>Fecha</th>
+                    <th>Importe</th>
+                    <th>Estado</th>
+                    <th>Imprimir</th>
+                    <th>Eliminar</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($payments as $payment)
+                    <tr>
+                        <td class="id">{{ $payment->id }}</td>
+                        <td>{{ $payment->patient->name }}</td>
+                        <td>{{ $payment->service->name }}</td>
+                        <td>{{ $payment->date }}</td>
+                        <td>{{ $payment->price }}</td>
+                        <td><div class="estado-container {{ $payment->status === 'Activo' ? 'Activo' : 'Inactivo'}}">{{ $payment->status }}</div></td>
+                        <td><a type="button" href="#" class="expediente-button">Imprimir</a></td>
+                        <td><a type="button" onclick="returnconfirm('¿Estás seguro de eliminar este registro? Esta acción no se puede deshacer.');" href="{{ route('eliminar-pago', ['id' => $payment->id]) }}" class="eliminar-button" id="change-status">Eliminar</a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

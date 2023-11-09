@@ -52,3 +52,4 @@ Route::match(['get', 'post'], '/buscar-pagos', [PaymentController::class, 'searc
 Route::get('/agregar-pago', [PaymentController::class, 'returnData'])->name('agregar-pago');
 Route::post('/agregar-pago', [PaymentController::class, 'saveData'])->name('agregar-pago');
 Route::post('/guardar-datos', [PaymentController::class, 'savePayment'])->name('guardar-datos');
+Route::get('eliminar-pago/{id}', [PaymentController::class, 'deletePayment'])->name('eliminar-pago');

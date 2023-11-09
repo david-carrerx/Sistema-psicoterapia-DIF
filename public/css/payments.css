@@ -149,7 +149,7 @@ table td.id{
 }
 
 table th{
-    text-align: center; 
+    text-align: center;
 }
 
 table td {
@@ -168,12 +168,12 @@ table td {
     color: white;
 }
 
-.activo {
+.Activo {
     background-color: #28A745;
     border: 1px solid #28A745;
 }
 
-.inactivo {
+.Inactivo {
     background-color: #DC3545;
     border: 1px solid #DC3545;
 }
