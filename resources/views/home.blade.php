@@ -2,15 +2,15 @@
 
 @section('title', 'Home')
 @section('content')
-    <img src="" alt="">
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <main>
         <div>
-            <img src="{{ asset('assets/home_image.jpeg') }}" alt="DIF Estatal">
+            <img class="main-image" src="{{ asset('assets/home_image.jpeg') }}" alt="DIF Estatal">
         </div>
-        <div>
+        <div class="title1">
             <h1>Desarrollo Integral de la Familia</h1>
         </div>
-        <div>
+        <div class="title2">
             <h1>Área de psicoterapia</h1>
         </div>
     </main>

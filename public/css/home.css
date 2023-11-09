@@ -1,0 +1,63 @@
+.main-image{
+    width: 920px;
+    height: 500px;
+}
+
+.title1 {
+    position: relative;
+    margin-top: 20px;
+    padding: 12px;
+    color: white;
+    text-align: center;
+    background-image: url('../assets/wallpaper2.jpeg');
+    overflow: hidden;
+}
+
+.title1::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #AB296A; 
+    opacity: 0.9; 
+    z-index: 1; 
+    mix-blend-mode: multiply; 
+}
+
+.title1 h1 {
+    position: relative; 
+    z-index: 2; 
+}
+
+.title2 {
+    position: relative;
+    margin-top: 5px;
+    padding: 2px;
+    color: white;
+    text-align: center;
+    background-image: url('../assets/wallpaper1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; 
+}
+
+.title2::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #DE5C9D; 
+    opacity: 0.4; 
+    z-index: 1; 
+    mix-blend-mode: multiply; 
+    
+}
+
+.title2 h1 {
+    position: relative; 
+    z-index: 2;
+}
