@@ -22,10 +22,6 @@ Route::view('home','home')->name('home')->middleware('auth');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-//Rutas para el registro de usuarios.
-Route::view('/register', 'auth.register')->name('register');
-Route::post('/register', [RegisteredUserController::class, 'store']);
-
 //Rutas para el manejo de la información del perfil de usuario.
 Route::post('/upload-profile-picture', [ProfilePictureController::class, 'upload'])->name('upload.profile.picture');
 Route::get('/perfil', [UserController::class, 'getUserData'])->name('perfil');
@@ -45,6 +41,14 @@ Route::get('/agregar-pacientes', [PatientController::class, 'returnData'])->name
 Route::post('/agregar-pacientes', [PatientController::class, 'saveData'])->name('agregar-pacientes');
 Route::get('/ver-expediente/{id}', [PatientController::class, 'viewFile'])->name('ver-expediente');
 Route::post('/actualizar-expediente/{id}', [PatientController::class, 'updateFile'])->name('actualizar-expediente');
+
+//Rutas para el manejo de usuarios
+Route::get('/usuarios', [UserController::class, 'getUsers'])->name('usuarios');
+Route::match(['get', 'post'], '/buscar-usuarios', [UserController::class, 'searchUsers'])->name('buscar-usuarios');
+Route::view('/registro', 'auth.register')->name('registrar');
+Route::post('/registro', [RegisteredUserController::class, 'store']);
+Route::get('/ver-usuario/{id}', [UserController::class, 'viewUser'])->name('ver-usuario');
+Route::post('/actualizar-usuario/{id}', [UserController::class, 'updateUser'])->name('actualizar-usuario');
 
 //Rutas para el manejo de información de los pagos.
 Route::get('/pagos', [PaymentController::class, 'getInfo'])->name('pagos');

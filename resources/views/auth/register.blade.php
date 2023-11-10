@@ -5,7 +5,7 @@
     <h1>Registro</h1>
 
      <!--Formulario de registro de usuario-->
-     <form method="POST" action="{{ route('register')}}">
+     <form method="POST" action="{{ route('registrar')}}">
         @csrf
         <!--Nombre de usuario-->
         <label for="name">
@@ -66,10 +66,10 @@
         @error('email') {{$message}} @enderror
         <br>
 
-        <!--Redirección al inicio de sesión-->
+        <!--Redirección al inicio de sesión
         <label>
             <span>¿Ya tienes cuenta? <a href="login">inicia sesión aquí</a></span>
-        </label>
+        </label>-->
         <button type="submit">Registrar</button>
     </form>
     <script src="{{ asset('js/auth.js')}}"></script>

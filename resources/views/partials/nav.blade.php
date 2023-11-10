@@ -14,6 +14,12 @@
             <div class="icon"><img src="{{asset('assets/home.svg')}}" alt="Inicio"></div>
             <a class="nav-link" href="{{ route('home') }}">Inicio</a>
         </li>
+        @if (Auth::user()->role == 'Administrador')
+            <li class="nav-item {{ request()->is(['usuarios*', 'buscar-usuarios*', 'ver-usuario*', 'actualizar-usuario*', 'registro*']) ? 'active' : '' }}" data-href="{{ route('usuarios') }} " style="height:50px;" >
+                <div class="icon"><img src="{{ asset('assets/users.png') }}" alt="Usuario"></div>
+                <a class="nav-link" href="{{ route('usuarios') }}">Usuarios</a>
+            </li> 
+        @endif
         <li class="nav-item {{ request()->is(['psicólogos*', 'buscar-psicólogos*', 'perfil-psicólogo*']) ? 'active' : '' }}" data-href="{{ route('psicólogos') }} " style="height:50px;" >
             <div class="icon"><img src="{{ asset('assets/psy.png') }}" alt="Psicólogo"></div>
             <a class="nav-link" href="{{ route('psicólogos') }}">Psicólogos</a>
