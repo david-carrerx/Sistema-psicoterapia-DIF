@@ -65,7 +65,7 @@
                     <th>Fecha</th>
                     <th>Importe</th>
                     <th>Estado</th>
-                    <th>Imprimir</th>
+                    <th>Tickets</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>

@@ -1,0 +1,165 @@
+.main-content{
+    position:absolute;
+    margin-left: 15%;
+    height: auto;
+    width: 800px;
+}
+
+.formulario{
+    border: solid #ABB5BE 1.8px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #152536;
+    padding: auto;
+    margin-bottom: 3%;
+}
+
+.nav_registro_paciente{
+    background-color: #AB296A;
+    margin-bottom: 30px;
+    height: 80px;
+    filter: opacity(0.9);
+}
+
+.nav_registro_paciente::after {
+    content: "";
+    background-image: url('https://occidente.co/wp-content/uploads/2018/06/manos-union-amistad.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    filter: opacity(0.15);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.nav_registro_paciente>h1{
+    margin-top: 20px;
+    text-align: center; 
+    color: white;
+    font-weight: bold;
+    font-size: 36px; 
+    font-family: 'Inter', sans-serif;
+    z-index: 2;
+}
+
+div[name="row_form"]{
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 2%;
+
+}
+
+input[name="price"], input[name="age"], select[name="gender"]{
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 5px;
+}
+
+select[name="service"], select[name="patient-name"], input[name="phone"]{
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 5px;
+}
+
+input[name="address"], input[name="religion"], input[name="job"]{
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 5px;
+}
+
+button.btn-success {
+    position: absolute;
+    width: 75px;
+    height: 36px;
+    border: 1.8px solid #CED4DA;
+    border-radius: 0 5px 5px 0;
+    background-color: #17A2B8;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-left: -5px;
+    z-index: 1;
+}
+
+label[name="consulta"]{
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+button[name="button-save"], button[name="button-save2"], button[name="button-reset"]{   
+    width: 120px;
+    height: 36px;
+    border-radius: 5px;
+    border: 1px solid #CED4DA;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    
+}
+
+.btn-success:hover{
+    background-color: #17A2B8;
+    border: 1.8px solid #17A2B8;
+}
+
+.button-save2{
+    background-color: #28A745;
+}
+
+.button-save2:hover{
+    background-color: #228b3b;
+}
+
+table {
+    text-align: justify;
+    margin-top: 20px;
+}
+
+table th.id{
+    text-align: center; 
+}
+table td.id{
+    text-align: center; 
+}
+
+table th{
+    text-align: center; 
+}
+
+table td {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #152536;
+    text-align: center;
+    font-weight: normal;
+}
+
+.button-icono {
+    width: 20px; 
+    height: 20px;
+    margin-left: 8px;
+}

@@ -28,7 +28,7 @@
             <div class="icon"><img src="{{ asset('assets/user.png') }}" alt="Usuario"></div>
             <a class="nav-link" href="{{ route('pacientes') }}">Pacientes</a>
         </li>
-        <li class="nav-item {{ request()->is(['pagos*', 'buscar-pagos*']) ? 'active' : '' }}" data-href="{{ route('pagos') }}" style="height:50px;">
+        <li class="nav-item {{ request()->is(['pagos*', 'buscar-pagos*', 'agregar-pago*']) ? 'active' : '' }}" data-href="{{ route('pagos') }}" style="height:50px;">
             <div class="icon"><img src="{{ asset('assets/history.png') }}" alt="Pagos"></div>
             <a class="nav-link" href="{{ route('pagos') }}">Pagos</a>
         </li>

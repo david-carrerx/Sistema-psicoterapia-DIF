@@ -16,7 +16,7 @@ $(document).ready(function() {
         var patientSelect = $("#patient-name");
 
         if (service && price && patientSelect.val()) {
-            $("#paymentTable tbody").append('<tr><td></td><td>' + service + '</td><td>' + price + '</td><td><a href="#" class="remove-row">Eliminar</a></td></tr>');
+            $("#paymentTable tbody").append('<tr><td></td><td>' + service + '</td><td>' + price + '</td><td><a href="#" class="remove-row btn btn-danger">Eliminar</a></td></tr>');
 
             $("#service").val("");
             $("#price").val("");
@@ -89,3 +89,4 @@ $(document).ready(function() {
         $("input[name='selected-patient']").val(selectedPatient);
     });
 });
+
