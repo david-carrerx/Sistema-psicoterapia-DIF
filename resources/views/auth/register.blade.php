@@ -2,75 +2,76 @@
 
 @section('title', 'Registrar')
 @section('content')
-    <h1>Registro</h1>
-
-     <!--Formulario de registro de usuario-->
-     <form method="POST" action="{{ route('registrar')}}">
+<link rel="stylesheet" href="{{ asset('css/add.css') }}">
+<div class="main-content">
+    <!--Formulario de registro de usuario-->
+    <form method="POST" action="{{ route('registrar')}}" class="container formulario">
         @csrf
-        <!--Nombre de usuario-->
-        <label for="name">
-            <span>Nombre</span>
-            <input type="text" id="name" name="name" autofocus required pattern="[A-Za-z\s]+" value="{{ old('name') }}" placeholder="Nombre de usuario" oninput="capitalizeWords(this)" title="No puede ingresar caractéres especiales solo letras" autocomplete="off">
-        </label>
-        @error('name') {{$message}} @enderror
-        <br>
+        <div class="row">
+            <div class="col-12 nav_registro_paciente">
+                <h1>Registro</h1>
+            </div>
+        </div>
 
-        <!--Contraseña de usuario-->
-        <label for="">
-            <span>Contraseña</span>
-            <input name="password" type="password" placeholder="Contraseña">
-        </label>
-        @error('password') {{$message}} @enderror
-        <br>
-
-        <!--Confirmar contraseña de usuario-->
-        <label for="">
-            <span>Confirmar contraseña</span>
-            <input name="password_confirmation" type="password" placeholder="Contraseña">
-        </label>
-        @error('password_confirmation') {{$message}} @enderror
-        <br>
-
-        <!--Rol de usuario-->
-        <label for="role">
-            <span>Rol de usuario</span>
-            <select name="role" required id="role">
-                <option value="Contador">Contador</option>
-                <option value="Administrador">Administrador</option>
-            </select>
-        </label>
-        @error('email') {{$message}} @enderror
-        <br>
-
-        <!--Edad de usuario-->
-        <label for="">
-            <span>Nacimiento</span>
-            <input name="birthday" type="date" required value="{{ old('birthday') }}" placeholder="Fecha de nacimiento">
-        </label>
-        @error('birthday') {{$message}} @enderror
-        <br>
-
-        <!--Teléfono de usuario-->
-        <label for="phone">
-            <span>Teléfono</span>
-            <input name="phone" type="text" min="1" max="120" required maxlength="10" pattern="\d{10}" value="{{ old('phone') }}" placeholder="Número" title="Solo puede ingresar 10 digitos numericos" autocomplete="off">
-        </label>
-        @error('phone') {{$message}} @enderror
-        <br>
-
-        <!--Correo electrónico de usuario-->
-        <label for="email">
-            <span>Correo Electrónico</span>
-            <input name="email" type="email" required autofocus value="{{ old('email') }}" placeholder="Correo electrónico" autocomplete="off">
-        </label>
-        @error('email') {{$message}} @enderror
-        <br>
-
-        <!--Redirección al inicio de sesión
-        <label>
-            <span>¿Ya tienes cuenta? <a href="login">inicia sesión aquí</a></span>
-        </label>-->
-        <button type="submit">Registrar</button>
+        <div class="form-container" style="align-items:center;">
+            <!--Nombre de usuario-->
+            <div class="row justify-content-center" name="row_form">
+                <div class="col-6"><label for="name">Nombre</label>
+                    <br><input type="text" id="name" name="name" autofocus required pattern="[A-Za-z\s]+" value="{{ old('name') }}" placeholder="Nombre de usuario" oninput="capitalizeWords(this)" title="No puede ingresar caractéres especiales solo letras" autocomplete="off">
+                </div>
+                <div class="alert-danger">@error('name') {{$message}} @enderror</div>
+            </div>
+            <!--Contraseña de usuario-->
+            <div class="row justify-content-center" name="row_form">
+                <div class="col-6"><label for="password">Contraseña</label>
+                    <br><input name="password" type="password" placeholder="Contraseña">
+                    <strong>@error('password') Las contraseñas no coinciden @enderror</strong>
+                </div>
+            </div>
+            <!--Confirmar contraseña de usuario-->
+            <div class="row justify-content-center" name="row_form">
+                <div class="col-6"><label for="password_confirmation">Confirmar contraseña</label>
+                    <br><input name="password_confirmation" type="password" placeholder="Contraseña">
+                </div>
+                @error('password_confirmation') {{$message}} @enderror
+            </div>
+            <!--Rol de usuario-->
+            <div class="row justify-content-center" name="row_form">
+                <div class="col-6"><label for="role">Rol de usuario</label>
+                    <br><select name="role" required id="role">
+                        <option value="Contador">Contador</option>
+                        <option value="Administrador">Administrador</option>
+                        </select>
+                </div>
+                @error('role') {{$message}} @enderror
+            </div>
+            <!--Fecha de nacimiento-->
+            <div class="row justify-content-center" name="row_form">
+                <div class="col-6"><label for="birthday">Fecha de nacimiento</label>
+                    <br><input name="birthday" type="date" required value="{{ old('birthday') }}" placeholder="Fecha de nacimiento">
+                </div>
+                @error('birthday') {{$message}} @enderror
+            </div>
+            <!--Teléfono de usuario-->
+            <div class="row justify-content-center" name="row_form">
+                <div class="col-6"><label for="phone">Teléfono</label>
+                    <br><input name="phone" type="text" min="1" max="120" required maxlength="10" pattern="\d{10}" value="{{ old('phone') }}" placeholder="Número" title="Solo puede ingresar 10 digitos numericos" autocomplete="off">
+                </div>
+                @error('phone') {{$message}} @enderror
+            </div>
+            <!--Correo electrónico de usuario-->
+            <div class="row justify-content-center" name="row_form">
+                <div class="col-6"><label for="email">Correo electrónico</label>
+                    <br><input name="email" type="email" required autofocus value="{{ old('email') }}" placeholder="Correo electrónico" autocomplete="off">
+                    <strong>@error('email') El email ya está registrado @enderror</strong>
+                </div>
+            </div>
+            <div class=" row m-0 text-center align-items-center justify-content-center">
+                <button name="button-save" class="button-save" type="submit" style="margin-top:25px; margin-bottom:25px;">Registrar</button>
+            </div>
+        </div>
     </form>
-    <script src="{{ asset('js/auth.js')}}"></script>
+</div>
+<!--Script para el funcionamiento de el formulario.-->
+<script src="{{ asset('js/auth.js')}}"></script>
 @endsection

@@ -9,6 +9,7 @@
     height: 500px;
     overflow-y: auto;
     overflow-x: hidden;
+    
 }
 
 .formulario{
@@ -126,7 +127,7 @@ input[name="checkbox"]{
     color: #152536;
 }
 
-input[name="time"], input[name="reason"]{
+input[name="time"], input[name="reason"], input[name="birthday"], input[name="email"], input[name="password"], input[name="password_confirmation"]{
     width: 100%;
     height: 36px;
     border-radius: 5px;
@@ -148,7 +149,14 @@ textarea{
     padding: 5px;
 }
 
-select[name="service"], select[name="psychologist"]{
+strong{
+    margin-top:15px;
+    font-size: 15px;
+    color: red;
+    font-weight: normal;
+}
+
+select[name="service"], select[name="psychologist"], select[name="role"]{
     width: 90%;
     height: 36px;
     border-radius: 5px;
