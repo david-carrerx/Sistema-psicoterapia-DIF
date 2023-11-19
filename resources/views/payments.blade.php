@@ -34,12 +34,7 @@
                     <input type="date" name="date" placeholder="Seleccionar" autocomplete="off">
                 </div>
                 <div class="col psy">
-                    <select name="patient-name" id="patient-name">
-                        <option disabled selected>Seleccionar</option>
-                            @foreach ($patients as $patient)
-                                <option value="{{ $patient->id }}">{{ $patient->name }}</option>
-                            @endforeach
-                    </select>
+                    <input type="text" name="patient-name" id="patient-name" placeholder="Buscar paciente" autocomplete="off">
                     <button type="submit" class="btn btn-success">Buscar</button>
                 </div>
                 <div class="col order-first">

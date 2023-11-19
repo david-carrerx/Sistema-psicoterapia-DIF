@@ -47,7 +47,7 @@ class PaymentController extends Controller
     {
         $serviceId = $request->input('service');
         $date = $request->input('date');
-        $patientId = $request->input('patient-name');
+        $patientName = $request->input('patient-name');
 
         $payments = Payment::query();
         $patients = Patient::all();
@@ -60,8 +60,15 @@ class PaymentController extends Controller
             $date = date('Y-m-d', strtotime($date));
             $payments->whereDate('date', $date);
         }
-        if ($patientId) {
-            $payments->where('patient_id', $patientId);
+        if ($patientName) {
+            $patientId = Patient::where('name', $patientName)->value('id');
+    
+            if ($patientId) {
+                $payments->where('patient_id', $patientId);
+            }
+            else {
+                //
+            }
         }
 
         $payments = $payments->get();

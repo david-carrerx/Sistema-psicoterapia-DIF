@@ -104,6 +104,16 @@ input[name="name"] {
     font-size: 14px;
 }
 
+input[name="psychologist"] {
+    width: 80%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
 .main-content .container .row .col.order-first {
     flex: 0 0 20%;
     max-width: 20%;

@@ -58,7 +58,7 @@ class PatientController extends Controller
     {
         $id = $request->input('id');
         $name = $request->input('name');
-        $psychologistId = $request->input('psychologist');
+        $psychologistName = $request->input('psychologist');
 
         $patients = Patient::query();
         $psychologists = Psychologist::all();
@@ -69,8 +69,15 @@ class PatientController extends Controller
         if ($name) {
             $patients->where('name', 'LIKE', '%' . $name . '%');
         }
-        if ($psychologistId) {
-            $patients->where('psychologist_id', $psychologistId);
+        if ($psychologistName) {
+            $psychologistId = Psychologist::where('name', $psychologistName)->value('id');
+    
+            if ($psychologistId) {
+                $patients->where('psychologist_id', $psychologistId);
+            }
+            else {
+                //
+            }
         }
 
         $patients = $patients->get();

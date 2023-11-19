@@ -26,7 +26,7 @@ main{
   margin-top: 0;
 }
 
-#sidebar {
+#sidebar { 
     position:absolute;
     left: 0;
     background-color: #DE5C9D;

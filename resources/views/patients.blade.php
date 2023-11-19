@@ -33,12 +33,7 @@
                     <input type="text" name="name" placeholder="Nombre del paciente" autocomplete="off">
                 </div>
                 <div class="col psy">
-                    <select name="psychologist" id="psychologist">
-                        <option value="" disabled selected>Seleccionar</option>
-                            @foreach ($psychologists as $psychologist)
-                                <option value="{{ $psychologist->id }}">{{ $psychologist->name }}</option>
-                            @endforeach
-                    </select>
+                    <input type="text" name="psychologist" id="searchPsychologist" placeholder="Buscar psicólogo" autocomplete="off">
                     <button type="submit" class="btn btn-success">Buscar</button>
                 </div>
                 <div class="col order-first">
@@ -76,4 +71,29 @@
             </tbody>
         </table>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Función para manejar el evento de entrada en el campo de búsqueda
+            $('#searchPsychologist').on('input', function () {
+                var searchText = $(this).val().toLowerCase();
+    
+                // Filtrar las opciones de psicólogos que coincidan con el texto de búsqueda
+                $('.psy-select-option').each(function () {
+                    var optionText = $(this).text().toLowerCase();
+    
+                    // Mostrar u ocultar la opción según si coincide con el texto de búsqueda
+                    if (optionText.includes(searchText)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+    
+
 @endsection
