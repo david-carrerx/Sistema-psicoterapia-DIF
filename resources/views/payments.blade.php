@@ -73,7 +73,7 @@
                         <td>{{ $payment->date }}</td>
                         <td>{{ $payment->price }}</td>
                         <td><div class="estado-container {{ $payment->status === 'Activo' ? 'Activo' : 'Inactivo'}}">{{ $payment->status }}</div></td>
-                        <td><a type="button" href="#" class="expediente-button">Imprimir</a></td>
+                        <td><a type="button" href="{{ route('generar-ticket', ['id' => $payment->id]) }}" class="expediente-button">Imprimir</a></td>
                         <td><a type="button" onclick="returnconfirm('¿Estás seguro de eliminar este registro? Esta acción no se puede deshacer.');" href="{{ route('eliminar-pago', ['id' => $payment->id]) }}" class="eliminar-button" id="change-status">Eliminar</a></td>
                     </tr>
                 @endforeach

@@ -11,6 +11,7 @@ Use App\Http\Controllers\PsychologistsController;
 Use App\Http\Controllers\PatientController;
 Use App\Http\Controllers\PaymentController;
 Use App\Http\Request\LoginRequest;
+use App\Http\Controllers\TicketController;
 
 //Rutas para navegar entre diferentes vistas.
 //Route::view('/','welcome');
@@ -57,3 +58,6 @@ Route::get('/agregar-pago', [PaymentController::class, 'returnData'])->name('agr
 Route::post('/agregar-pago', [PaymentController::class, 'saveData'])->name('agregar-pago');
 Route::post('/guardar-datos', [PaymentController::class, 'savePayment'])->name('guardar-datos');
 Route::get('eliminar-pago/{id}', [PaymentController::class, 'deletePayment'])->name('eliminar-pago');
+
+//Ruta para el manejo de reportes
+Route::get('/generar-ticket/{id}', [TicketController::class, 'createTicket'])->name('generar-ticket');
