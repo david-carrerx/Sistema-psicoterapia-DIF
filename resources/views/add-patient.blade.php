@@ -115,9 +115,10 @@
                     <button type="reset" class="button-reset" name="button-reset">Eliminar</button>
                 </div>
             </div>
-        
-    </form>
         </div>
+    
+    </form>
+        
 </div>    
 <script src="{{ asset('js/patients_form.js') }}"></script>
 @endsection

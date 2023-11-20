@@ -1,0 +1,219 @@
+body{
+    background-color: #F8F9FA;
+}
+
+select#psychologist {
+    position: relative;
+    width: 80%;
+    height: 36px;
+    border: 1.8px solid #CED4DA;
+    border-radius: 5px;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-left: -5px;
+    z-index: 2;
+}
+
+button.btn-success {
+    position: absolute;
+    width: 75px;
+    height: 36px;
+    border: 1.8px solid #CED4DA;
+    border-radius: 0 5px 5px 0;
+    background-color: #28A745;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-left: -5px;
+    z-index: 1;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1 rem; 
+    font-family: 'Inter', sans-serif;
+    color: #152536;
+}
+
+.custom-button {
+    background-color: #17A2B8;
+    width: 110px;
+    height: 36px;
+    border-radius: 0 5px 5px 0;
+    border: 1.8px solid #CED4DA;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    margin-left: 5px;
+    text-align: center;
+    padding-top: 6px;
+    text-decoration: none;
+}
+
+.custom-button:hover {
+    background-color: #158192;
+    color: white;
+    text-decoration: none;
+}
+
+.custom-button2 {
+    background-color: #28A745;
+    width: 110px;
+    height: 36px;
+    border-radius: 0 5px 5px 0;
+    border: 1.8px solid #CED4DA;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    margin-left: 50px;
+    text-align: center;
+    padding-top: 6px;
+    text-decoration: none;
+}
+
+.custom-button2:hover {
+    background-color: #2f9447;
+    color: white;
+    text-decoration: none;
+}
+
+.button-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+}
+
+input[name="id"] {
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+input[name="name"] {
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.main-content .container .row .col.order-first {
+    flex: 0 0 20%;
+    max-width: 20%;
+    
+}
+
+.main-content .container .row .col.order-last {
+    display: flex;
+    flex-direction: row;
+    max-width: 28%;
+    margin-left: 25px;
+}
+
+.main-content .container .row .col {
+    flex: 0 0 22%;
+    max-width: 22%;
+    margin-left: -10px;
+}
+
+.main-content .container .row .col.psy {
+    flex: 0 0 30%;
+    max-width: 30%;
+    margin-left: -5px;
+}
+
+.container-fluid{
+    width: 100%;
+    height: 100%;
+}
+
+table {
+    text-align: justify;
+    margin-left: 15px;
+    margin-right: 55px;
+}
+
+table th.id{
+    text-align: center; 
+}
+table td.id{
+    text-align: center; 
+}
+
+table th{
+    text-align: center;
+}
+
+table td {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #152536;
+    text-align: center;
+}
+
+.estado-container {
+    text-align: center;
+    display: inline-block;
+    width: 80px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: white;
+}
+
+.Activo {
+    background-color: #28A745;
+    border: 1px solid #28A745;
+}
+
+.Inactivo {
+    background-color: #DC3545;
+    border: 1px solid #DC3545;
+}
+
+.expediente-button {
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    background-color: #54595E;
+    color: white;
+    border: 1px solid #CED4DA;
+    border-radius: 0 5px 5px 0;
+    text-decoration: none;
+}
+
+.eliminar-button {
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 0 5px 5px 0;
+    text-decoration: none;
+}
+
+.button-icono {
+    width: 25px; 
+    height: 25px;
+    margin-left: 8px;
+}
+
+.expediente-button:hover {
+    background-color: #3f4344;
+    color: white;
+    text-decoration: none;
+}
+
+.eliminar-button:hover {
+    background-color: #970000;
+    border: 1px solid #970000;
+    color: white;
+    text-decoration: none;
+}

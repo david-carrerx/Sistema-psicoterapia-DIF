@@ -34,6 +34,8 @@ Route::get('/servicios', [ServicesController::class, 'index'])->name('servicios'
 Route::get('/psicólogos', [PsychologistsController::class, 'getPsychologistsData'])->name('psicólogos');
 Route::match(['get', 'post'], '/buscar-psicólogos', [PsychologistsController::class, 'searchPsychologists'])->name('buscar-psicólogos');
 Route::get('/perfil-psicólogo/{id}', [PsychologistsController::class, 'createProfile'])->name('perfil-psicólogo');
+Route::get('/agregar-psicólogos', [PsychologistsController::class, 'returnData'])->name('agregar-psicólogos');
+Route::post('/agregar-psicólogos', [PsychologistsController::class, 'saveData'])->name('agregar-psicólogos');
 
 //Rutas para el manejo de la información de los pacientes.
 Route::get('/pacientes', [PatientController::class, 'getPsychologistsPatientData'])->name('pacientes');
