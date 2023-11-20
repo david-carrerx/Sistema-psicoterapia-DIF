@@ -107,8 +107,28 @@ input[name="date"] {
     font-size: 14px;
 }
 
+input[name="date2"] {
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
 input[name="patient-name"] {
     width: 70%;
+    height: 36px;
+    border-radius: 5px;
+    border: 1.8px solid #CED4DA;
+    color: #6C757D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+input[name="cashier"] {
+    width: 100%;
     height: 36px;
     border-radius: 5px;
     border: 1.8px solid #CED4DA;

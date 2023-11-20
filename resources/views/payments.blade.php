@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col order-last"></div>
                 <div class="col">
-                    <label for="date">Buscar por fecha</label>
+                    <label for="date">Inicio</label>
                 </div>
                 <div class="col psy">
                     <label for="patient-name">Buscar paciente</label>
@@ -31,8 +31,10 @@
                 </div>
 
                 <div class="col">
-                    <input type="date" name="date" placeholder="Seleccionar" autocomplete="off">
+                    <input type="date" name="date" placeholder="Fecha de inicio" autocomplete="off">
+                    <label for="date2" style="margin-top: 10px;">Fin</label><input type="date" name="date2" placeholder="Fecha de fin" autocomplete="off">
                 </div>
+
                 <div class="col psy">
                     <input type="text" name="patient-name" id="patient-name" placeholder="Buscar paciente" autocomplete="off">
                     <button type="submit" class="btn btn-success">Buscar</button>
@@ -44,6 +46,7 @@
                                 <option value="{{ $service->id }}">{{ $service->name }}</option>
                             @endforeach
                     </select>
+                    <label for="cashier" style="margin-top: 10px;">Buscar por cajero</label><input type="text" name="cashier" id="searchCashier" placeholder="Buscar cajero" autocomplete="off">
                 </div>
             </div>                            
         </form>

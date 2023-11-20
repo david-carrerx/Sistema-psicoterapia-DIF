@@ -47,24 +47,45 @@ class PaymentController extends Controller
     {
         $serviceId = $request->input('service');
         $date = $request->input('date');
+        $date2 = $request->input('date2');
         $patientName = $request->input('patient-name');
+        $cashier = $request->input('cashier');
 
         $payments = Payment::query();
         $patients = Patient::all();
         $services = Service::all();
 
+
+        // Validación de fechas
+        $request->validate([
+            'date' => 'nullable|date',
+            'date2' => 'nullable|date|after_or_equal:date',
+        ]);
+
         if ($serviceId) {
             $payments->where('service_id', $serviceId);
         }
-        if ($date) {
-            $date = date('Y-m-d', strtotime($date));
-            $payments->whereDate('date', $date);
-        }
+        
         if ($patientName) {
             $patientId = Patient::where('name', $patientName)->value('id');
     
             if ($patientId) {
                 $payments->where('patient_id', $patientId);
+            }
+            else {
+                //
+            }
+        }
+
+        if ($date && $date2) {
+            $payments->whereBetween('date', [$date, $date2]);
+        }
+
+        if ($cashier) {
+            $userId = User::where('name', $cashier)->value('id');
+    
+            if ($userId) {
+                $payments->where('user_id', $userId);
             }
             else {
                 //
