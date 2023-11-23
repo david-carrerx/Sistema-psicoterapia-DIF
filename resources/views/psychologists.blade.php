@@ -51,7 +51,7 @@
                     <th>Número</th>
                     <th>Email</th>
                     <th>Nacimiento</th>
-                    <th>Ver</th>
+                    <th>Especialidad</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,7 +62,7 @@
                         <td>{{ $psychologist->phone }}</td>
                         <td>{{ $psychologist->email }}</td>
                         <td>{{ $psychologist->birthday }}</td>
-                        <td><a type="button" href="{{ route('perfil-psicólogo', ['id' => $psychologist->id]) }}" class="expediente-button">Ver<img src="{{asset('assets/eye.png')}}" alt="..." class="button-icono"></a></td>
+                        <td>{{ $psychologist->speciality }}</td>
                     </tr>
                 @endforeach
             </tbody>

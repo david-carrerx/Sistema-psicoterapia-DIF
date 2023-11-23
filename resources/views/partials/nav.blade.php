@@ -3,7 +3,7 @@
 @auth
 <nav id="sidebar">
     <ul class="nav flex-column">
-        <li class="nav-item top-perfil" data-href="{{ route('perfil') }}">
+        <li class="nav-item top-perfil" data-href="#">
             <img src="https://us.123rf.com/450wm/alekseyvanin/alekseyvanin1704/alekseyvanin170403663/76699411-vector-de-icono-de-usuario-ilustraci%C3%B3n-de-logotipo-s%C3%B3lido-de-perfil-pictograma-aislado-en-blanco.jpg" style=" width:35%; height:50%; " alt="Foto de perfil">
             <div class="cont-data" id="user-info">
                 <a href="{{ route('perfil') }}">{{ explode(' ', Auth::user()->name)[0] }}</a>
